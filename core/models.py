@@ -64,7 +64,7 @@ class Mobile(TimeStamp):
     image = models.ImageField(
         upload_to="items_image", verbose_name="تصویر محصول"
     )
-    production_date = models.DateTimeField(verbose_name="تاریخ تولید")
+    production_date = models.DateField(verbose_name="تاریخ تولید")
     status = models.BooleanField(default=False, verbose_name="فعال باشد؟")
     objects = ModelManager()
 
