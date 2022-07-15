@@ -16,8 +16,11 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 
 from core.views import HomeView
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+
+from . import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,3 +28,8 @@ urlpatterns = [
     path("api/", include("core.urls")),
     path("api-auth/", include("rest_framework.urls")),
 ]
+if settings.DEBUG:
+    # add media static files
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
