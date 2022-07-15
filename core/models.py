@@ -54,12 +54,23 @@ class Product(TimeStamp):
     category = models.ManyToManyField(
         Category, max_length=100, related_name="items"
     )
-    slug = models.SlugField()
+    upc = models.CharField(
+        max_length=12,
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name="کد محصول",
+        help_text="این فیلد باید پر شود, حداکثر 12 کلمه",
+    )
     description = models.TextField()
     image = models.ImageField(upload_to="items_image")
     production_date = models.DateTimeField(verbose_name="تاریخ تولید")
     status = models.BooleanField(default=False)
     objects = ItemManager()
+
+    class Meta:
+        verbose_name = "محصول"
+        verbose_name_plural = "محصولات"
 
     def __str__(self):
         return self.title
