@@ -11,6 +11,10 @@ from .serializers import MobileSerializer
 
 
 class HomeView(ListView):
+    """
+    Home page show 6 mobile items
+    """
+
     template_name = "pages/home.html"
 
     def get_queryset(self):
@@ -18,6 +22,10 @@ class HomeView(ListView):
 
 
 class MobileViewSet(ModelViewSet):
+    """
+    MobileViewSet with active mobile items , filterset, ordering and search field
+    """
+
     queryset = Mobile.objects.filter_active_status().prefetch_related(
         "category"
     )
