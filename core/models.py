@@ -1,13 +1,21 @@
 from django.db import models
 
 
+class TimeStamp(models.Model):
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
 class CategoryManager(models.Manager):
     def filter_active_category(self):
         active = self.filter(status=True)
         return active
 
 
-class Category(models.Model):
+class Category(TimeStamp):
     """
     Category table for product table
     """
@@ -26,6 +34,32 @@ class Category(models.Model):
         verbose_name = "دسته بندی"
         verbose_name_plural = "دسته بندی ها"
         ordering = ["position"]
+
+    def __str__(self):
+        return self.title
+
+
+class ItemManager(models.Manager):
+    def filter_true_status(self):
+        return self.filter(status=True)
+
+
+class Product(TimeStamp):
+    """
+    Product table stored items for sale
+    """
+
+    title = models.CharField(max_length=100)
+    price = models.FloatField()
+    category = models.ManyToManyField(
+        Category, max_length=100, related_name="items"
+    )
+    slug = models.SlugField()
+    description = models.TextField()
+    image = models.ImageField(upload_to="items_image")
+    production_date = models.DateTimeField(verbose_name="تاریخ تولید")
+    status = models.BooleanField(default=False)
+    objects = ItemManager()
 
     def __str__(self):
         return self.title
