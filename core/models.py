@@ -40,7 +40,7 @@ class Category(TimeStamp):
 
 
 class ItemManager(models.Manager):
-    def filter_true_status(self):
+    def filter_active_status(self):
         return self.filter(status=True)
 
 
