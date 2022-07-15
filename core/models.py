@@ -44,9 +44,9 @@ class ItemManager(models.Manager):
         return self.filter(status=True)
 
 
-class Product(TimeStamp):
+class Mobile(TimeStamp):
     """
-    Product table stored items for sale
+    Mobile product table stored mobile items for sale
     """
 
     title = models.CharField(max_length=100, verbose_name="عنوان محصول")
@@ -74,8 +74,8 @@ class Product(TimeStamp):
     objects = ItemManager()
 
     class Meta:
-        verbose_name = "محصول"
-        verbose_name_plural = "محصولات"
+        verbose_name = "محصول موبایل"
+        verbose_name_plural = "محصولات موبایل"
 
     def __str__(self):
         return self.title
