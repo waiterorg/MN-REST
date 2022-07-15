@@ -16,3 +16,6 @@ For easy access demo sqlitedb is availabe !
 6. Start the application by running this command (_Run the command where [manage.py](./manage.py) is
    located_) <br>
    ` python manage.py runserver`
+
+## Demo user
+You can login with thid demo user `username:waiter` and `password:123`.
