@@ -9,8 +9,8 @@ class TimeStamp(models.Model):
         abstract = True
 
 
-class CategoryManager(models.Manager):
-    def filter_active_category(self):
+class ModelManager(models.Manager):
+    def filter_active_status(self):
         active = self.filter(status=True)
         return active
 
@@ -28,7 +28,7 @@ class Category(TimeStamp):
         default=True, verbose_name="آیا نمایش داده شود؟"
     )
     position = models.IntegerField(default=0, verbose_name="پوزیشن")
-    objects = CategoryManager()
+    objects = ModelManager()
 
     class Meta:
         verbose_name = "دسته بندی"
@@ -37,11 +37,6 @@ class Category(TimeStamp):
 
     def __str__(self):
         return self.title
-
-
-class ItemManager(models.Manager):
-    def filter_active_status(self):
-        return self.filter(status=True)
 
 
 class Mobile(TimeStamp):
@@ -71,7 +66,7 @@ class Mobile(TimeStamp):
     )
     production_date = models.DateTimeField(verbose_name="تاریخ تولید")
     status = models.BooleanField(default=False, verbose_name="فعال باشد؟")
-    objects = ItemManager()
+    objects = ModelManager()
 
     class Meta:
         verbose_name = "محصول موبایل"
