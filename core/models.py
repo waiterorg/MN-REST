@@ -49,10 +49,13 @@ class Product(TimeStamp):
     Product table stored items for sale
     """
 
-    title = models.CharField(max_length=100)
-    price = models.FloatField()
+    title = models.CharField(max_length=100, verbose_name="عنوان محصول")
+    price = models.FloatField(verbose_name="قیمت")
     category = models.ManyToManyField(
-        Category, max_length=100, related_name="items"
+        Category,
+        max_length=100,
+        related_name="items",
+        verbose_name="دسته بندی",
     )
     upc = models.CharField(
         max_length=12,
@@ -62,10 +65,12 @@ class Product(TimeStamp):
         verbose_name="کد محصول",
         help_text="این فیلد باید پر شود, حداکثر 12 کلمه",
     )
-    description = models.TextField()
-    image = models.ImageField(upload_to="items_image")
+    description = models.TextField(verbose_name="توضیحات")
+    image = models.ImageField(
+        upload_to="items_image", verbose_name="تصویر محصول"
+    )
     production_date = models.DateTimeField(verbose_name="تاریخ تولید")
-    status = models.BooleanField(default=False)
+    status = models.BooleanField(default=False, verbose_name="فعال باشد؟")
     objects = ItemManager()
 
     class Meta:
