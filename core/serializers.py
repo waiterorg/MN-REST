@@ -28,6 +28,7 @@ class MobileSerializer(serializers.ModelSerializer):
         fields = [
             "title",
             "price",
+            "upc",
             "category",
             "description",
             "image",
