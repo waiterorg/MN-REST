@@ -4,7 +4,7 @@ from rest_framework import routers
 from .views import HomeView, MobileViewSet
 
 router = routers.DefaultRouter()
-router.register("mobile", MobileViewSet, basename="mobiles")
+router.register("mobiles", MobileViewSet, basename="mobiles")
 
 urlpatterns = [
     path("", HomeView.as_view()),
