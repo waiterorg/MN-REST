@@ -18,4 +18,4 @@ For easy access demo sqlitedb is availabe !
    ` python manage.py runserver`
 
 ## Demo user
-You can login with thid demo user `username:waiter` and `password:123`.
+You can login with this demo user `username:waiter` and `password:123`.
