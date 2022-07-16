@@ -17,7 +17,7 @@ class ModelManager(models.Manager):
 
 class Category(TimeStamp):
     """
-    Category table for product table
+    Category table
     """
 
     title = models.CharField(max_length=150, verbose_name="عنوان دسته بندی")
