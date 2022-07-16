@@ -1,13 +1,8 @@
 from django.urls import path
 from rest_framework import routers
 
-from .views import HomeView, MobileViewSet
-
-router = routers.DefaultRouter()
-router.register("mobiles", MobileViewSet, basename="mobiles")
+from .views import HomeView, ListMobile
 
 urlpatterns = [
-    path("", HomeView.as_view()),
+    path("mobiles/", ListMobile.as_view()),
 ]
-
-urlpatterns += router.urls
