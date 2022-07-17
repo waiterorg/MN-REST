@@ -25,6 +25,7 @@ urlpatterns = [
     path("", HomeView.as_view()),
     path("api/", include("core.urls")),
     path("api-auth/", include("rest_framework.urls")),
+    path("users/", include("users.urls")),
 ]
 if settings.DEBUG:
     # add media static files
