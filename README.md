@@ -1,6 +1,6 @@
 # MN-REST
 REST API for getting phones .<br>
-For easy access demo sqlitedb is availabe !
+For easy access demo sqlitedb is available !
 
 ## Setup
 
