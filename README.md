@@ -11,14 +11,15 @@ For easy access demo sqlitedb is available !
    `.\venv\Scripts\activate`
 4. Install the dependencies <br>
    `pip install -r requirements.txt `
-5. Activate the environment with this command. <br>
-   `.\venv\Scripts\activate`
-6. Start the application by running this command (_Run the command where [manage.py](./manage.py) is
+5. Start the application by running this command (_Run the command where [manage.py](./manage.py) is
    located_) <br>
    ` python manage.py runserver`
 
+## Custom commands
+1. for migration follow `python manage.py migrate-db` .
+
 ## Demo user
-You can login with this demo user `username:waiter` and `password:123`.
+You can login with this demo user `username:admin` and `password:admin`.
 
 ## Endpoints
 for see follow link `http://127.0.0.1:8000/swagger/` .
