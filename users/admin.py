@@ -2,13 +2,17 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 
-from .models import CustomUser
+from .models import User
 
 
-class CustomUserAdmin(UserAdmin):
+class UserAdmin(UserAdmin):
+    """
+    Customize admin panel with personal info, permissions and important dates .
+    """
+
     fieldsets = (
         (None, {"fields": ("email", "username", "password")}),
-        (_("Personal info"), {"fields": ("first_name", "last_name")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "phone")}),
         (
             _("Permissions"),
             {
@@ -34,7 +38,7 @@ class CustomUserAdmin(UserAdmin):
     )
     list_display = ("email", "username", "first_name", "last_name", "is_staff")
     list_filter = ("is_staff", "is_superuser", "is_active", "groups")
-    search_fields = ("email", "username", "first_name", "last_name")
+    search_fields = ("email", "username", "phone", "first_name", "last_name")
     ordering = (
         "email",
         "username",
@@ -45,4 +49,4 @@ class CustomUserAdmin(UserAdmin):
     )
 
 
-admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(User, UserAdmin)
