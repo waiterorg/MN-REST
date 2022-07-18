@@ -52,6 +52,7 @@ urlpatterns = [
     path("api/", include("core.urls")),
     path("api-auth/", include("rest_framework.urls")),
     path("users/", include("users.urls")),
+    path("chat/", include("chat.urls")),
     path(
         "api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"
     ),
