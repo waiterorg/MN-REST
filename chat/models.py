@@ -6,6 +6,10 @@ User = get_user_model()
 
 
 class Message(models.Model):
+    """
+    Message table used for send message between users .
+    """
+
     sender = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -26,7 +30,7 @@ class Message(models.Model):
         auto_now_add=True,
         verbose_name=_("timestamp"),
     )
-    is_read = models.BooleanFeild(
+    is_read = models.BooleanField(
         default=False,
         verbose_name=_("is read"),
     )
@@ -35,4 +39,6 @@ class Message(models.Model):
         return self.message
 
     class Meta:
+        verbose_name = _("پیام")
+        verbose_name_plural = _("پیام ها")
         ordering = ("timestamp",)
