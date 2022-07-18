@@ -35,6 +35,7 @@ class RegisterView(APIView):
 class ChangePasswordView(UpdateAPIView):
     """
     An endpoint for changing user password .
+    Get old_password and new_password .
     """
 
     serializer_class = ChangePasswordSerializer
