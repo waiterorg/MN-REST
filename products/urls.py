@@ -17,6 +17,9 @@ from core.views import HomeView
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from rest_framework import permissions
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -24,7 +27,26 @@ from rest_framework_simplejwt.views import (
 
 from . import settings
 
+schema_view = get_schema_view(
+    openapi.Info(
+        title="MN REST API",
+        default_version="v1",
+        description="Task open source API",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="iwaiterorg@gmail.com"),
+        license=openapi.License(name="MIT License"),
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny],
+)
+
+
 urlpatterns = [
+    path(
+        "swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
     path("admin/", admin.site.urls),
     path("", HomeView.as_view()),
     path("api/", include("core.urls")),
