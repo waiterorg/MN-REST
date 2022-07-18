@@ -19,3 +19,6 @@ For easy access demo sqlitedb is available !
 
 ## Demo user
 You can login with this demo user `username:waiter` and `password:123`.
+
+## Endpoints
+for see follow link `http://127.0.0.1:8000/swagger/` .
