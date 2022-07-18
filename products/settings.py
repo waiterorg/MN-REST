@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Local applications
     "core",
     "users",
+    "chat",
     # External applications
     "rest_framework",
     "django_filters",
