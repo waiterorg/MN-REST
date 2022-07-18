@@ -13,6 +13,7 @@ from .serializers import ChangePasswordSerializer, UserSerializer
 class RegisterView(APIView):
     """
     An endpoint for register user .
+    Require username, email and password .
     """
 
     http_method_names = ["post"]
