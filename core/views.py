@@ -24,7 +24,7 @@ class HomeView(ListView):
 
 class ListMobile(CustomGenericAPIView):
     """
-    ListMobile View with active mobile items , filterset, ordering and search field
+    An endpoint with active mobile items , filtering, ordering and search .
     """
 
     serializer_class = MobileSerializer
