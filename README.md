@@ -14,7 +14,11 @@ For easy access demo sqlitedb is available !
 5. Start the application by running this command (_Run the command where [manage.py](./manage.py) is
    located_) <br>
    ` python manage.py runserver`
-
+## Features
+1. Authentication method is JWT and Custom authentication back-end .
+2. login with email, phone and username
+3. api endpoint for giving data and filter, ordering and search.
+4. send message to other user with RESTAPI .
 ## Custom commands
 1. for migration follow `python manage.py migrate-db` .
 
